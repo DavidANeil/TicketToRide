@@ -1,0 +1,16 @@
+:host {
+    border: 2px outset #777777;
+    padding: 5px;
+}
+
+:host-context(.blue) {
+    background: blue;
+}
+
+:host-context(.green) {
+    background: green;
+}
+
+:host-context(.yellow) {
+    background: yellow;
+}

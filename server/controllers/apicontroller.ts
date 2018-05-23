@@ -1,20 +1,22 @@
 
-// Import only what we need from express
+import {LoginRequest} from '@common/requests/loginrequest';
 import {Request, Response, Router} from 'express';
+import {LoginService} from '../services/loginservice';
 
 // Assign router to the express.Router() instance
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  var options = {
-    root: __dirname + '../../target',
-    dotfiles: 'deny',
-  };
-
-  var fileName = req.params['filename'];
-  res.sendFile(fileName, options, () => {
-    console.log('Served: ', fileName);
-  });
+router.put('/login', (req: Request, res: Response) => {
+  let request = LoginRequest.deserialize(req.body);
+  if (request instanceof LoginRequest) {
+    const loginService = new LoginService();
+    const result = loginService.loginUser(request.username, request.password);
+    if (result) {
+      res.type('application/json').send(result);
+    } else {
+      res.status(401);
+    }
+  }
 });
 
 

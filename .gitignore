@@ -1,4 +1,6 @@
 **/*.js
+!webpack.config.js
 node_modules
 target
 .vscode
+*.log

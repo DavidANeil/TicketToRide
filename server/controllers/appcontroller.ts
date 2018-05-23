@@ -1,5 +1,3 @@
-
-// Import only what we need from express
 import {Request, Response, Router} from 'express';
 
 // Assign router to the express.Router() instance

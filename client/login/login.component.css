@@ -1,0 +1,19 @@
+.floater {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

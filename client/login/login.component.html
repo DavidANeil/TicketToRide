@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="login.component.css">
+<span class="floater">
+    <game-well>
+        <div class="list">
+            <span class="item">
+                <label for="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                >
+            </span>
+            <span class="item">
+                <label for="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                >
+            </span>
+            <span
+                *ngIf="isRegistering"
+                class="item"
+            >
+                <label for="passwordconfirm">Confirm:</label>
+                <input
+                    type="password"
+                    id="passwordconfirm"
+                >
+            </span>
+            <div class="buttons">
+                <input
+                    type="button"
+                    class="blue"
+                    (click)="tryLogin()"
+                >
+                Login
+                <input
+                    type="button"
+                    class="blue"
+                    (click)="tryRegister()"
+                >
+                Register
+            </div>
+        </div>
+    </game-well>
+</span>

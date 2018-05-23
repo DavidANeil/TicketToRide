@@ -1,3 +1,4 @@
+import * as config from '@common/config';
 import * as express from 'express';
 
 import {ApiController} from './controllers/apicontroller';

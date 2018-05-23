@@ -1,28 +1,11 @@
-
-// Import only what we need from express
+import * as express from 'express';
 import {Request, Response, Router} from 'express';
 
-// Assign router to the express.Router() instance
 const router: Router = Router();
 
-router.get('/:filename', (req: Request, res: Response) => {
-  let options: {[key: string]: string} = {
-    dotfiles: 'deny',
-  };
-  let fileName: string = req.params['filename'];
-  console.log('requesting', fileName);
+router.use(express.static(__dirname + '/../../target'));
+router.use(express.static(__dirname + '/../../client'));
 
-  if (fileName.endsWith('.html')) {
-    // serve html files directly from source directory
-    options.root = __dirname + '/../../client';
-  } else {
-    options.root = __dirname + '/../../target';
-  }
-
-  res.sendFile(fileName, options, () => {
-    console.log('Served: ', fileName);
-  });
-});
 
 
 export const ServeController: Router = router;

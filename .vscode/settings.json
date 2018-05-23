@@ -2,7 +2,9 @@
 {
     "files.exclude": {
         "server/**/*.js": true,
+        "common/**/*.js": true,
         "node_modules": true,
         ".vscode": true
-    }
+    },
+    "typescript.format.enable": false
 }
