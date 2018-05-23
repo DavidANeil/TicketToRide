@@ -4,6 +4,7 @@ import {BaseDatabase} from './basedatabase';
 
 
 export class Database extends SqliteDatabase implements BaseDatabase {
+  // DELETE: It looks like sqlite3 doesn't need singleton i/o
   static _instance: BaseDatabase = new SqliteDatabase(dbPath);
   static get instance(): BaseDatabase {
     return Database._instance;

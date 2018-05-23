@@ -13,7 +13,14 @@
 }
 
 .item {
+    margin-bottom: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
 }

@@ -10,8 +10,8 @@ export class LoginRequest {
     });
   }
 
-  static deserialize(raw: string): LoginRequest|null {
-    const parsed = parseJSON(raw);
+  static deserialize(parsed: any): LoginRequest|null {
+    // const parsed = parseJSON(raw);
     if (parsed && typeof parsed === 'object' &&
         typeof parsed.username === 'string' &&
         typeof parsed.password === 'string') {

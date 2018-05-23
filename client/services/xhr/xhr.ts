@@ -18,6 +18,10 @@ export enum ReadyState {
 
 @Injectable()
 export class XHR {
+  public getJSON(method: HTTPMethod, path: string) {
+    return this.sendJSON(method, path);
+  }
+
   public sendJSON(
       method: HTTPMethod, path: string, body: string = '',
       headers?: {[key: string]: string}) {
@@ -42,7 +46,7 @@ export class XHR {
                reject(xhr);
              };
              xhr.open(method, dest);
-             xhr.responseType = 'json';
+             xhr.responseType = 'text';
              if (headers) {
                headers['accept'] = headers['accept'] || 'application/json';
                for (let key in headers) {
@@ -51,7 +55,11 @@ export class XHR {
                  }
                }
              }
-             xhr.send(body);
+             if (body === '') {
+               xhr.send();
+             } else {
+               xhr.send(body);
+             }
            })
         .then((xhrResponse: XMLHttpRequest) => {
           return parseJSON(xhrResponse.responseText);

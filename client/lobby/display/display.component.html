@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" href="display.component.css">
+<div class="game-listing-display">
+    <span class="game-title">Name: {{gameListing.name}}</span>
+    <span
+        class="game-players"
+        *ngFor="let player of players"
+    >
+        Name: {{player.name}}
+    </span>
+
+</div>

@@ -1,4 +1,8 @@
+import 'module-alias/register';
+
 import * as config from '@common/config';
+import * as bodyParser from 'body-parser';
+import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 
 import {ApiController} from './controllers/apicontroller';
@@ -11,6 +15,12 @@ const main = function() {
   const app: express.Application = express();
   // The port the express app will listen on
   const port: number = 8080;
+
+  app.use(bodyParser.json({
+    'strict': false,
+    'type': '*/*',
+  }));
+  app.use(cookieParser());
 
   // Mount the controllers
   app.use('/serve/', ServeController);

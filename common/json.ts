@@ -1,4 +1,11 @@
-export type JSONType = string|number|boolean|null|{[key: string]: JSONType};
+interface JSONObject {
+  [key: string]: JSONType;
+}
+
+interface JSONArray extends Array<JSONType> {}
+
+export type JSONType =
+    null|undefined|string|number|boolean|JSONArray|JSONObject;
 
 export function parseJSON(jsonString: string): JSONType {
   try {
